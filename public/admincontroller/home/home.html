@@ -1,0 +1,82 @@
+<div id="wrapper">
+    <div ui-view="header"></div>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Blank Page <small>Subheading</small> </h1>
+                    <div class="col-lg-6 col-lg-offset-3">
+                        <form role="form" name="gameForm" multiple ng-submit="sendGame()">
+
+
+                        	<div class="form-group">
+                                <label>Other site games uploaded</label>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" value="" ng-model="enable">Enable
+                                    </label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input name="title" class="form-control" ng-model="gameData.title" required>
+                                
+                                <div ng-messages="gameForm.title.$error" role="alert" ng-if="gameForm.title.$touched">
+                                 <p class="help-block text-danger" ng-message="required">Title field required.</p> 
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label>content</label>
+                                <textarea required name="content" class="form-control" rows="3" ng-model="gameData.content"></textarea>
+
+                                <div ng-messages="gameForm.content.$error" role="alert" ng-if="gameForm.content.$touched">
+                                 <p class="help-block text-danger" ng-message="required">content field required.</p> 
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Catgeory</label>
+                                <select name="catgeory" class="form-control" ng-model="gameData.catgeory">
+                                    <option>welcopme</option>
+                                    <option>welcopme</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input name="tags" class="form-control" ng-model="gameData.tags">
+                                <!-- <p class="help-block">Title field required.</p> -->
+                            </div>
+                            <div class="form-group" ng-show="enable">
+                                <label>Other site Game URL </label>
+                                <input name="url" class="form-control" ng-model="gameData.url">
+                                <!-- <p class="help-block">Title field required.</p> -->
+                            </div>
+                            <div class="form-group">
+                                <label>Upload your thumbnail image</label>
+                                <input accept="image/*" file-model="gameData.thumbnail" type="file" name="thumbnail">
+                            </div>
+
+                            <div class="form-group" ng-show="!enable">
+                                <label>Upload your Game Swf File</label>
+                                <input accept=".swf" file-model="gameData.game" type="file" name="game">
+                            </div>
+
+                            <div class="form-group button-container">                            
+                            <button ng-click="reset()" type="reset" class="btn btn-primary pull-right">Reset Button</button>
+                            <button type="submit" class="btn btn-success pull-right">Submit Button</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+</div>
